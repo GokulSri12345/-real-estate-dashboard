@@ -1,0 +1,11 @@
+async function askGroq(question, agent) {
+  ...
+  const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+    headers: { 'Authorization': `Bearer ${GROQ_API_KEY}` },
+    body: JSON.stringify({
+      model: 'llama-3.3-70b-versatile',
+      messages: [{ role: 'system', content: agentContext }, { role: 'user', content: question }],
+    }),
+  });
+  ...
+}  
